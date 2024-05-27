@@ -12,6 +12,7 @@ const app = express();
 app.use(express.json()).use(
   cors({
     origin: ["http://localhost:3001"],
+    methods: ["GET"],
   })
 );
 
@@ -77,7 +78,7 @@ app.post(
 */
 
 //app.use(cors());
-//app.use(express.json());
+app.use(express.json());
 app.use("/users", userRouter);
 app.use("/messages", messagesRouter);
 
