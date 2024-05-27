@@ -11,9 +11,10 @@ app.use(express.json()).use(
     origin: ["http://localhost:3001"],
   })
 );
+/*
 app.get("/", (_req, res) => {
   res.send("Hello World");
-});
+});*/
 
 app.get("/users", async (_req, res) => {
   const allUsers = await prisma.user.findMany();
