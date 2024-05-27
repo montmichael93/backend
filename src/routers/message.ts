@@ -1,35 +1,20 @@
-import express from "express";
-import cors from "cors";
-import { userRouter } from "../src/routers/users";
-import { messagesRouter } from "../src/routers/message";
-//import { validateRequest } from "zod-express-middleware";
-//import { z } from "zod";
+//import app from "../src/app";
+//import express from "express";
+//import cors from "cors";
+import { validateRequest } from "zod-express-middleware";
+import { z } from "zod";
 //import { prisma } from "../prisma/db";
-//import { Router } from "express";
+import { Router } from "express";
+import { prisma } from "../../prisma/db";
 
-const app = express();
+const messagesRouter = Router();
 
-app.use(express.json()).use(
-  cors({
-    origin: ["http://localhost:3001"],
-  })
-);
-
-app.get("/", (_req, res) => {
-  res.send("Hello World");
-});
-/*
-app.get("/users", async (_req, res) => {
-  const allUsers = await prisma.user.findMany();
-  res.send(allUsers);
-});*/
-/*
-app.get("/messages", async (_req, res) => {
+messagesRouter.get("/messages", async (_req, res) => {
   const allMessages = await prisma.message.findMany();
   res.send(allMessages);
 });
 
-app.post(
+messagesRouter.post(
   "/messages",
   validateRequest({
     body: z.object({
@@ -74,13 +59,5 @@ app.post(
     return res.json(createMessage);
   }
 );
-*/
 
-app.use(cors());
-app.use(express.json());
-app.use("/users", userRouter);
-app.use("messages", messagesRouter);
-
-app.listen(3000);
-
-export default app;
+export { messagesRouter };
