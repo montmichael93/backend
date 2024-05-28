@@ -16,7 +16,7 @@ app.get("/", (_req, res) => {
   res.send("Hello World");
 });*/
 
-app.get("/users", async (_req, res) => {
+app.get("/", async (_req, res) => {
   const allUsers = await prisma.user.findMany();
   res.send(allUsers);
 });
