@@ -12,13 +12,13 @@ const app = express();
 app.use(express.json()).use(
   cors({
     origin: ["http://localhost:3001"],
-    methods: ["GET"],
   })
 );
 
 app.get("/", (_req, res) => {
-  res.send("Yoooo!");
+  res.send("Hello World!");
 });
+
 /*
 app.get("/users", async (_req, res) => {
   const allUsers = await prisma.user.findMany();
@@ -79,9 +79,8 @@ app.post(
 
 //app.use(cors());
 app.use(express.json());
-app.use("/users", userRouter);
-app.use("/messages", messagesRouter);
-
+app.use("/api", userRouter);
+app.use("/api", messagesRouter);
 app.listen(3000);
 
 export default app;
