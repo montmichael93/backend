@@ -11,10 +11,10 @@ app.use(express.json()).use(
     origin: ["http://localhost:3001"],
   })
 );
-/*
+
 app.get("/", (_req, res) => {
-  res.send("Hello World");
-});*/
+  res.send("yoo 321");
+});
 
 app.get("/", async (_req, res) => {
   const allUsers = await prisma.user.findMany();

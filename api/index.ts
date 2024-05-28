@@ -16,7 +16,7 @@ app.use(express.json()).use(
 );
 
 app.get("/", (_req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World");
 });
 
 /*
