@@ -13,10 +13,10 @@ app.use(express.json()).use(
 );
 
 app.get("/", (_req, res) => {
-  res.send("yoo 321");
+  res.send("Hello World!");
 });
 
-app.get("/", async (_req, res) => {
+app.get("/users", async (_req, res) => {
   const allUsers = await prisma.user.findMany();
   res.send(allUsers);
 });

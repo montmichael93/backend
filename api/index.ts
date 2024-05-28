@@ -1,3 +1,5 @@
+import app from "../src/app";
+/*
 import express from "express";
 import cors from "cors";
 import { userRouter } from "../src/routers/users";
@@ -76,11 +78,11 @@ app.post(
   }
 );
 */
-
+/*
 //app.use(cors());
 app.use(express.json());
 app.use("/users", userRouter);
 app.use("/messages", messagesRouter);
-app.listen(3000);
+app.listen(3000);*/
 
 export default app;
